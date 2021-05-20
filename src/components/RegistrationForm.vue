@@ -68,6 +68,11 @@
         </div>
       </q-card>
     </div>
+
+    <!-- add tweet -->
+    <div v-else>
+      <h2>Welcome {{userData.name}}, write your first Tweet</h2>
+    </div>
   </div>
 </template>
 <script>
@@ -82,7 +87,7 @@ export default {
       password: "",
       error: "",
       //   use this property to detect if user is registerd or not
-    //   then toggle to show tweet content
+      //   then toggle to show tweet content
       registered: false
     };
   },
@@ -113,6 +118,17 @@ export default {
       this.password = "";
       console.log(this.userData);
     }
+  },
+  created(){
+    //   Check if the user is registered and set the registered to true 
+    if(localStorage.getItem('simple_tweet_registered') === 'true'){
+        this.registered = true
+    }
+    // repopulate the userData object
+    if(localStorage.getItem('simple_tweet_registered_user')){
+        this.userData  = JSON.parse(localStorage.getItem('simple_tweet_registered_user'))
+    }
+      console.log('created');
   }
 };
 </script>
