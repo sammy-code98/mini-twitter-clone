@@ -71,11 +71,14 @@
 
     <!-- add tweet -->
     <div v-else>
-      <h2>Welcome {{userData.name}}, write your first Tweet</h2>
+      <h2>Welcome {{ userData.name }}, write your first Tweet</h2>
+
+      <TweetBox></TweetBox>
     </div>
   </div>
 </template>
 <script>
+import TweetBox from "./TweetBox";
 export default {
   data() {
     return {
@@ -90,6 +93,9 @@ export default {
       //   then toggle to show tweet content
       registered: false
     };
+  },
+  components: {
+    TweetBox
   },
   methods: {
     registerAccount() {
@@ -119,16 +125,18 @@ export default {
       console.log(this.userData);
     }
   },
-  created(){
-    //   Check if the user is registered and set the registered to true 
-    if(localStorage.getItem('simple_tweet_registered') === 'true'){
-        this.registered = true
+  created() {
+    //   Check if the user is registered and set the registered to true
+    if (localStorage.getItem("simple_tweet_registered") === "true") {
+      this.registered = true;
     }
     // repopulate the userData object
-    if(localStorage.getItem('simple_tweet_registered_user')){
-        this.userData  = JSON.parse(localStorage.getItem('simple_tweet_registered_user'))
+    if (localStorage.getItem("simple_tweet_registered_user")) {
+      this.userData = JSON.parse(
+        localStorage.getItem("simple_tweet_registered_user")
+      );
     }
-      console.log('created');
+    console.log("created");
   }
 };
 </script>
