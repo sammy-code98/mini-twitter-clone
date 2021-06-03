@@ -1,16 +1,36 @@
-# Quasar App (twitter-clone)
+# Mini Twitter clone
+Twitter clone that alows users register, and make tweet
+just something to play around with and get you grounded with vuejs(using quasar framework) and saving user data in localStorage
 
-A Quasar Framework app
 
-## Install the dependencies
+## Run Locally
+
+Clone the project
+
 ```bash
-npm install
+  git clone https://github.com/sammy-code98/mini-twitter-clone
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+Go to the project directory
+
 ```bash
-quasar dev
+  cd my-project
 ```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the app in development mode (hot-code reloading, error reporting, etc.)
+
+
+```bash
+  quasar dev
+```
+
+
 
 
 ### Build the app for production
@@ -18,5 +38,4 @@ quasar dev
 quasar build
 ```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v1.quasar.dev/quasar-cli/quasar-conf-js).
+
