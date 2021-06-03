@@ -1,6 +1,8 @@
 <template>
   <q-page class="flex flex-center">
     <RegistrationForm></RegistrationForm>
+
+    
   </q-page>
 </template>
 

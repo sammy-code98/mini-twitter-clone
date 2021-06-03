@@ -71,7 +71,9 @@
 
     <!-- add tweet -->
     <div v-else>
-      <h2>Welcome {{ userData.name }}, write your first Tweet</h2>
+      <h2 class="text-h5 text-center q-ma-md">
+        Welcome {{ userData.name }}, write your first Tweet
+      </h2>
 
       <TweetBox></TweetBox>
     </div>
@@ -102,9 +104,11 @@ export default {
       if (this.name !== "" && this.email !== "" && this.password !== "") {
         (this.userData.id = ++this.usersID),
           // record user details
-          (this.userData.name = this.name),
-          (this.userData.email = this.email),
-          (this.userData.password = this.password);
+          this.userData.name = this.name,
+          this.userData.email = this.email,
+          this.userData.password = this.password,
+          this.registered = true;
+
       } else {
         this.error = "Please complete all the form fields";
       }
@@ -122,7 +126,7 @@ export default {
       this.name = "";
       this.email = "";
       this.password = "";
-      console.log(this.userData);
+      // console.log(this.userData);
     }
   },
   created() {
@@ -136,7 +140,15 @@ export default {
         localStorage.getItem("simple_tweet_registered_user")
       );
     }
-    console.log("created");
+    /* Parse all tweets from the local storage  */
+    if (localStorage.getItem("simple_tweet_tweets")) {
+      // console.log("There is a list of tweets");
+      this.tweets = JSON.parse(localStorage.getItem("simple_tweet_tweets"));
+    } else {
+      // console.log("No tweets here");
+    }
+
+    // console.log("created");
   }
 };
 </script>
